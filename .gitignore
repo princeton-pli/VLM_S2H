@@ -1,0 +1,14 @@
+# Python
+__pycache__
+*.pyc
+*.egg-info
+dist
+
+# Other
+.DS_Store
+wandb
+logs
+checkpoints
+
+.ipynb_checkpoints
+*.ipynb
