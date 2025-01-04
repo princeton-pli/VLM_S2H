@@ -140,7 +140,7 @@ cd $PROJECT_DIR
 source scripts/launcher.sh # see the script for example usage
 ```
 
-We explain the arguments in following:
+We explain the arguments used in `launcher.sh` as follows:
 - the first argument specifies the setting index (0 for Consecutive Table Readout, 1 for Table Readout, 2 for Grid Navigation, 3 for Visual Analogy)
 - the second argument specifies the option index/indices (explained in `scripts/combine_data.py` and the following)
   - `1`: Image-via-text supervision with 3 epochs
