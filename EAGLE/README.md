@@ -2,7 +2,9 @@ Our code in this directory is adapted from the original repo [EAGLE](https://git
 
 ## Changes Made
 `eagle/model/multimodal_encoder/multi_backbone_channel_concatenation_encoder.py` (lines 56, 97)
+
 `eagle/model/multimodal_encoder/pix2struct_encoder.py` (lines 71, 74)
+
 `eagle/model/multimodal_encoder/sam_encoder.py` (lines 95, 97)
 - add a local path to the downloaded model (instead of the online huggingface repo)
 - necessary only if you plan on using more visual encoders
@@ -14,11 +16,14 @@ Our code in this directory is adapted from the original repo [EAGLE](https://git
 - debug buggy code on dtype
 
 `eagle/train/eagle_trainer.py` (lines 149-151)
+
 `train.py` (line 131)
-- add support for `SequentialSampler`
+- add support for SequentialSampler
 
 `eagle/mm_utils.py` (lines 222-237)
+
 `eagle/conversation.py` (line 32, lines 111-134, lines 321-333, line 445)
+
 `train.py` (line 53, lines 352-446, lines 744-745, lines 1060-1062, line 1065)
 - add support for Llama3 (adapted from Cambrian codebase)
 
@@ -32,4 +37,4 @@ Our code in this directory is adapted from the original repo [EAGLE](https://git
 - do not train if final checkpoint already exists
 
 `train_mem.py` (lines 1-7)
-- debug potentially buggy code on `transformer_engine`
+- debug potentially buggy code on transformer_engine
