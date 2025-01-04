@@ -28,9 +28,13 @@ We introduce a synthetic framework to evaluate the ability of VLMs to perform al
 2. When the model fails at both S2H generalization on image and text inputs, injected reasoning capability in the text modality brings improvement in S2H generalization on images; 
 3. Our mechanistic study of this phenomenon using a measure of gradient alignment inspired a more effective two-phase training that further promote better S2H generalization on images.
 
+![](figures/overview.png)
+
 ## Main Results
 
 We show the main results of our proposed training strategies with Mix, Mix+, and Align-Mix+ supervision, compared with other naive training with only Text or Image supervision. Please see more detailed results and ablation findings in our paper.
+
+![](figures/main_results.png)
 
 ## Experiments
 
