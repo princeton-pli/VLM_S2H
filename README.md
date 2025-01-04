@@ -23,7 +23,14 @@ This repository contains the code and pruned models for our paper [Generalizing 
 
 ## Overview
 
+We introduce a synthetic framework to evaluate the ability of VLMs to perform algorithmic visual reasoning (AVR) that consists of three tasks: *Table Readout*, *Grid Navigation*, *Visual Analogy*. Each task has two levels of difficulty, SIMPLE and HARD, and even the SIMPLE versions are difficult for frontier VLMs. We identify strategies that training on the SIMPLE version of tasks is sufficient to improve performance on the corresponding HARD version, i.e., simple-to-hard (S2H) generalization. Meanwhile, the inputs of each task can be presented in both an image or a text format, which allows a quantification of the modality imbalance and how it is impacted by different training strategies. Our key insights include:
+1. Mixing various types of text-based and image-based supervision results in improved S2H generalization on images, given the model achieves good S2H generalization on text inputs;
+2. When the model fails at both S2H generalization on image and text inputs, injected reasoning capability in the text modality brings improvement in S2H generalization on images; 
+3. Our mechanistic study of this phenomenon using a measure of gradient alignment inspired a more effective two-phase training that further promote better S2H generalization on images.
+
 ## Main Results
+
+We show the main results of our proposed training strategies with Mix, Mix+, and Align-Mix+ supervision, compared with other naive training with only Text or Image supervision. Please see more detailed results and ablation findings in our paper.
 
 ## Experiments
 
@@ -31,13 +38,13 @@ In the following section, we provide instructions on reproducing the experiments
 
 ### Prepare Conda Environment
 
-First set the following bash variable based on your machine and update one of the files.
+First, set the following bash variable based on your machine and update one of the files.
 ```Shell
-PROJECT_DIR="/absolute path to the project foler/VLM_S2H"
+PROJECT_DIR="/absolute path to the project folder/VLM_S2H"
 sed -i "s#CHECKPOINTS_ROOT = None#CHECKPOINTS_ROOT = '${PROJECT_DIR}/checkpoints'#" $PROJECT_DIR/VLMEvalKit/vlmeval/config.py
 ```
 
-Then prepare a conda environment 
+Then prepare a conda environment using the following commands
 ```Shell
 cd $PROJECT_DIR
 conda create -n VLM_S2H python=3.10 -y
@@ -50,9 +57,7 @@ pip install -e VLMEvalKit # requirement: pip < 25.0
 
 ### Prepare EAGLE Data (Requires 2.5M Data Files + 1TB Storage)
 
-First prepare the pretraining data from LLaVA
-Note: some of the images in the chat.json file may no longer be available in the images.zip due to copyright.
-You may have to delete some of the entries in the json file if the images are not available.
+First, prepare the pretraining data from LLaVA using the following commands
 ```Shell
 cd $PROJECT_DIR/pretraining_data
 git lfs install
@@ -60,8 +65,10 @@ git clone https://huggingface.co/datasets/liuhaotian/LLaVA-CC3M-Pretrain-595K
 cd LLaVA-CC3M-Pretrain-595K
 unzip images.zip
 ```
+Note: some of the images in the chat.json file may no longer be available in the images.zip due to copyright. You may have to delete some of the entries in the json file if the images are not available.
 
-Next prepare the visual instruction tuning data from EAGLE
+Next, prepare the visual instruction tuning data from EAGLE using the following commands
+
 ```Shell
 cd $PROJECT_DIR/pretraining_data
 git lfs install
@@ -73,7 +80,7 @@ tar -xvzf images.tar.gz
 
 ### Prepare EAGLE-X2-Llama3-8B
 
-fill out cluster-specific details in bash script
+To obtain the base VLM model used in our experiments, fill out cluster-specific details in both bash scripts `pretrain-eagle-x2-llama3-8b.sh` and `finetune-eagle-x2-llama3-8b-1.8m.sh` under `scripts/prepare_eagle/`, then run
 
 ```Shell
 cd $PROJECT_DIR
@@ -83,27 +90,30 @@ sbatch scripts/prepare_eagle/finetune-eagle-x2-llama3-8b-1.8m.sh
 
 ### Prepare Synthetic Data (Highly Recommend Multi-thread Processing)
 
-Each setting may take up to 24 hours without multi-thread processing.
-Highly recommend creating a custom bash script and splitting the load.
+Each setting may take up to 24 hours without multi-thread processing. It is highly recommended to create a custom bash script and split the load.
 
+To create Consecutive Table Readout data,
 ```Shell
 cd $PROJECT_DIR/data_generation/consecutive_table_readout
 source generate_data.sh
 source generate_eval_data.sh
 ```
 
+To create Table Readout data,
 ```Shell
 cd $PROJECT_DIR/data_generation/table_readout
 source generate_data.sh
 source generate_eval_data.sh
 ```
 
+To create Grid Navigation data,
 ```Shell
 cd $PROJECT_DIR/data_generation/grid_navigation
 source generate_data.sh
 source generate_eval_data.sh
 ```
 
+To create Visual Analogy data,
 ```Shell
 cd $PROJECT_DIR/data_generation/visual_analogy
 source generate_data.sh
@@ -111,7 +121,7 @@ source generate_data.sh
 
 ### Prepare Evaluation Data
 
-This converts the .json file (in the visual instruction tuning data format) to .tsv file (that the VLMEvalKit accepts)
+The following command converts the `.json` file in the visual instruction tuning data format to .tsv file that [VLMEvalKit](https://github.com/open-compass/VLMEvalKit/tree/8106439c2d3b07353c84374bebdd947d4ec16a8f) accepts.
 
 ```Shell
 cd $PROJECT_DIR/VLMEvalKit
@@ -120,12 +130,33 @@ python -m vlmeval.build_our_data
 
 ### Train / Evaluate on Synthetic Data
 
-fill out cluster-specific details in bash script
-
+To train and evaluate on the synthetic tasks, fill out cluster-specific details in the bash script `scripts/launcher.sh`, then run
 ```Shell
 cd $PROJECT_DIR
 source scripts/launcher.sh # see the script for example usage
 ```
+
+We explain the arguments in following:
+- the first argument specifies the setting index (0 for Consecutive Table Readout, 1 for Table Readout, 2 for Grid Navigation, 3 for Visual Analogy)
+- the second argument specifies the option index/indices (explained in `scripts/combine_data.py` and the following)
+  - `1`: Image-via-text supervision with 3 epochs
+  - `2`: Text supervision with 2 epochs
+  - `3`: Image supervision with 2 epochs
+  - `4`: Image supervision with 3 epochs
+  - `5`: Image+Text supervision with 1.5 epochs
+  - `6`: Mix supervision with 1 epoch
+  - `7`: Mix+ supervision with 1 epoch
+  - `8`: Align-Mix+ supervision first phase
+  - `9`: Image-via-Text+ supervision with 3-epoch training on SIMPLE image
+- the third argument specifies the number of training data in thousands (e.g. `30` means 30k training data)
+- the optional fourth argument allows you to customize tags to differentiate runs of the same setup (e.g. `-noCoT`)
+- optionally, you may also run `export no_cot=_noCoT` to enable training and evaluation without the use of CoT 
+
+Following the above specifications, an example usage is
+```Shell
+source scripts/launcher.sh 0 1,2 60
+```
+This will train and evaluate two models for the Consecutive Table Readout task: one with Image-via-text supervision 60k data, and the other with Text supervision 60k data.
 
 ## Bugs or Questions?
 
