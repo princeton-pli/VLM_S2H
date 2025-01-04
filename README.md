@@ -129,9 +129,11 @@ source scripts/launcher.sh # see the script for example usage
 
 ## Bugs or Questions?
 
+If you have any questions related to the code or the paper, feel free to email Simon (juhyunp@princeton.edu), Abhishek (ap34@princeton.edu), and Yun (yc6206@princeton.edu). If you encounter any problems when using the code, or want to report a bug, you can open an issue. Please try to specify the problem with details so we can give more effective help!
+
 ## Citation
 
-Please cite our paper if you find this repo helpful:
+Please cite our paper if you find our paper or this repo helpful:
 ```bibtex
 
 ```
