@@ -33,20 +33,16 @@ We introduce a synthetic framework to evaluate the ability of VLMs to perform al
 ## Main Results
 
 We create two sets of tasks: first set contains those tasks where the model trains only on SIMPLE examples and learns to generalize on HARD examples better on text modality. The second set contains tasks where the model fails to generalize to HARD examples by simply training on SIMPLE examples. In such task, we inject HARD text examples in training and measure how much the model can generalize on HARD images. We primarily compare the following 5 supervision techniques.
-1. Text supervision: Train only on SIMPLE text examples
-2. Image supervision: Train only on SIMPLE image examples
-3. Image-via-text supervision: Trains on SIMPLE image examples that teaches to convert to text before generating solution.
-4. Mix supervision: mixture of Image, Text and Image-via-text supervision.
-5. Mix+ supervision: HARD text examples added to Mix supervision to inject HARD text reasoning.
-6. Align-Mix+ supervision: Two stage strategy that first trains on Image-via-text supervision on SIMPLE examples and then trains with Mix+.
+1. **Text** supervision: Train only on SIMPLE text examples
+2. **Image** supervision: Train only on SIMPLE image examples
+3. **Image-via-text** supervision: Trains on SIMPLE image examples that teaches to convert to text before generating solution.
+4. **Mix** supervision: mixture of Image, Text and Image-via-text supervision.
+5. **Mix+** supervision: HARD text examples added to Mix supervision to inject HARD text reasoning.
+6. **Align-Mix+** supervision: Two stage strategy that first trains on Image-via-text supervision on SIMPLE examples and then trains with Mix+.
 
 We show the main results of our proposed training strategies. Please see more detailed results and ablation findings in our paper. 
 ![](figures/main_results.png)
 
-Our main findings are 
-1. On simple tasks, where Text supervision performs better S2H generalization than Image supervision, Mix supervision that contains image-via-text supervision improves S2H generalization on HARD images.
-2. On difficult tasks, where training only on SIMPLE examples isn't sufficient, include HARD text examples in Mix supervision also helps S2H generalization on images. 
-3. S2H generalization transfer between text and image modality can be quantified by computing alignment of gradients between SIMPLE and HARD examples.
 
 ## Experiments
 
