@@ -1,9 +1,9 @@
 ## Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?
 
-This repository contains the code and pruned models for our paper [Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?](https://arxiv.org/pdf/2501.02669v1)
+This repository contains the code and pruned models for our paper [Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?](https://arxiv.org/abs/2501.02669)
 
 **************************** **Updates** ****************************
-* 01/06/2025: We released [our paper](https://arxiv.org/pdf/2501.02669v1). Check it out!
+* 01/06/2025: We released [our paper](https://arxiv.org/abs/2501.02669). Check it out!
 
 ## Quick Links
 
@@ -187,9 +187,14 @@ We release links to our different trained models for easier experimentations in 
 |    Align-Mix+ supervision on Grid Navigation |    [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-GridNavigation-AlignMixPlus-120k)        |
 |    Align-Mix+ supervision on Visual Analogy  |    [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-VisualAnalogy-AlignMixPlus-120k)        |
 
+## Evaluation dataset links
+
+We release the evaluation datasets that we used for reproducibility. [Link](https://github.com/princeton-pli/VLM_S2H/VLMEvalKit/dataset)
+
+
 ## Bugs or Questions?
 
-If you have any questions related to the code or the paper, feel free to email Simon (juhyunp@princeton.edu), Abhishek (ap34@princeton.edu), and Yun (yc6206@princeton.edu). If you encounter any problems when using the code, or want to report a bug, you can open an issue. Please try to specify the problem with details so we can give more effective help!
+If you have any questions related to the code or the paper, feel free to email Simon (juhyunp 'at' princeton 'dot' edu), Abhishek (ap34 'at' princeton 'dot' edu), and Yun (yc6206 'at' princeton 'dot' edu). If you encounter any problems when using the code, or want to report a bug, you can open an issue. Please try to specify the problem with details so we can give more effective help!
 
 ## Citation
 
