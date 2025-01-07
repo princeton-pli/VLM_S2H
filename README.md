@@ -178,9 +178,13 @@ If you have any questions related to the code or the paper, feel free to email S
 
 Please cite our paper if you find our paper or this repo helpful:
 ```bibtex
-@article{ParkPanigrahiCheng2024,
-  title={Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?},
-  author={Simon Park and Abhishek Panigrahi and Yun Cheng and Dingli Yu and Anirudh Goyal and Sanjeev Arora},
-  year={2024},
+@misc{park2025generalizingsimplehardvisual,
+      title={Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?}, 
+      author={Simon Park and Abhishek Panigrahi and Yun Cheng and Dingli Yu and Anirudh Goyal and Sanjeev Arora},
+      year={2025},
+      eprint={2501.02669},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2501.02669}, 
 }
 ```
