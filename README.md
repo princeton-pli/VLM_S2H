@@ -189,7 +189,7 @@ We release links to our different trained models for easier experimentations in 
 
 ## Evaluation dataset links
 
-We release the evaluation datasets that we used for reproducibility. [Link](https://github.com/princeton-pli/VLM_S2H/VLMEvalKit/dataset)
+We release the evaluation datasets that we used for reproducibility. [Link](https://github.com/princeton-pli/VLM_S2H/tree/main/VLMEvalKit/dataset)
 
 
 ## Bugs or Questions?
