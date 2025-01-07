@@ -18,6 +18,8 @@ This repository contains the code and pruned models for our paper [Generalizing 
   - [Prepare Synthetic Data (Highly Recommend Multi-thread Processing)](#prepare-synthetic-data-highly-recommend-multi-thread-processing)
   - [Prepare Evaluation Data](#prepare-evaluation-data)
   - [Train / Evaluate on Synthetic Data](#train--evaluate-on-synthetic-data)
+- [Model links](#model-links)
+- [Evaluation dataset links](#evaluation-dataset-links)
 - [Bugs or Questions?](#bugs-or-questions)
 - [Citation](#citation)
 
@@ -169,6 +171,21 @@ Following the above specifications, an example usage is
 source scripts/launcher.sh 0 1,2 60
 ```
 This will train and evaluate two models for the Consecutive Table Readout task: one with Image-via-text supervision 60k data, and the other with Text supervision 60k data.
+
+## Model links
+
+We release links to our different trained models for easier experimentations in the future.
+
+| Model Name | Model Link |
+|------------|------------|
+|    EagleX2-Llama3-8B        |      [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B)      |
+|    Mix supervision on Consecutive Table Readout        |      [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-ConsecutiveTableReadout-Mix-160k)      |
+|    Mix+ supervision on Table Readout   |     [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-TableReadout-MixPlus-240k)       |
+|    Mix+ supervision on Grid Navigation |     [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-GridNavigation-MixPlus-120k)       |
+|    Mix+ supervision on Visual Analogy  |     [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-VisualAnalogy-MixPlus-120k)       |
+|    Align-Mix+ supervision on Table Readout   |    [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-TableReadout-AlignMixPlus-240k)        |
+|    Align-Mix+ supervision on Grid Navigation |    [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-GridNavigation-AlignMixPlus-120k)        |
+|    Align-Mix+ supervision on Visual Analogy  |    [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-VisualAnalogy-AlignMixPlus-120k)        |
 
 ## Bugs or Questions?
 
