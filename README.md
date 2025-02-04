@@ -178,7 +178,7 @@ We release links to our different trained models for easier experimentations in 
 
 | Model Name | Model Link |
 |------------|------------|
-|    EagleX2-Llama3-8B        |      [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B)      |
+|    Eagle-X2-Llama3-8B        |      [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B)      |
 |    Mix supervision on Consecutive Table Readout        |      [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-ConsecutiveTableReadout-Mix-160k)      |
 |    Mix+ supervision on Table Readout   |     [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-TableReadout-MixPlus-240k)       |
 |    Mix+ supervision on Grid Navigation |     [Link](https://huggingface.co/PrincetonPLI/Eagle-X2-Llama3-8B-GridNavigation-MixPlus-120k)       |
