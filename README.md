@@ -1,6 +1,6 @@
 ## Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?
 
-This repository contains the code and pruned models for our paper [Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?](https://arxiv.org/abs/2501.02669)
+This repository contains the code for our paper [Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?](https://arxiv.org/abs/2501.02669)
 
 **************************** **Updates** ****************************
 * 01/06/2025: We released [our paper](https://arxiv.org/abs/2501.02669). Check it out!
