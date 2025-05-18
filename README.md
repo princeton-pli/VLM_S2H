@@ -3,6 +3,7 @@
 This repository contains the code for our paper [Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?](https://arxiv.org/abs/2501.02669)
 
 **************************** **Updates** ****************************
+* 05/01/2025: Our paper is accepted to ICML 2025. See you in Vancouver!
 * 01/06/2025: We released [our paper](https://arxiv.org/abs/2501.02669). Check it out!
 
 ## Quick Links

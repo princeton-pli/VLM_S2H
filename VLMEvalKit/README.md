@@ -37,10 +37,21 @@ Our code in this directory is adapted from the original repo [VLMEvalKit](https:
 
 `vlmeval/vlm/eagle` (newly added)
 
-`vlmeval/vlm/__init__.py` (line 33)
+`vlmeval/vlm/__init__.py` (line 34)
 
-`vlmeval/config.py` (lines 146-150, line 158)
+`vlmeval/config.py` (lines 146-150, line 161)
 
 - add support to Eagle
 - add support for llama3 (adapted from Cambrian codebase)
 - also see changes made to Eagle github repo
+
+
+## Chages Made for Qwen2.5-VL (adapted from a future version of [VLMEvalKit](https://github.com/open-compass/VLMEvalKit/tree/2d98019d801b92b2a0f02cce1b019a792e296a94/vlmeval/vlm))
+
+`vlmeval/smp/misc.py` (lines 193 - 217)
+
+`vlm/qwen2_vl`
+
+`vlmeval/vlm/__init__.py` (line 20)
+
+`vlmeval/config.py` (lines 150-153)

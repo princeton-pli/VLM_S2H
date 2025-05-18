@@ -147,7 +147,10 @@ our_model_series = {}
 CHECKPOINTS_ROOT = None
 checkpoints = os.listdir(CHECKPOINTS_ROOT)
 for checkpoint in checkpoints:
-    our_model_series[checkpoint] = partial(EAGLE, model_pth=os.path.join(CHECKPOINTS_ROOT, checkpoint))
+    if "eagle" in checkpoint.lower():
+        our_model_series[checkpoint] = partial(EAGLE, model_pth=os.path.join(CHECKPOINTS_ROOT, checkpoint))
+    elif "qwen" in checkpoint.lower():
+        our_model_series[checkpoint] = partial(Qwen2VLChat, model_path=os.path.join(CHECKPOINTS_ROOT, checkpoint), min_pixels=128*28*28, max_pixels=1280*28*28)
 
 supported_VLM = {}
 
