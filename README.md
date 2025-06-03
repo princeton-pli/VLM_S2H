@@ -3,8 +3,9 @@
 This repository contains the code for our paper [Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?](https://arxiv.org/abs/2501.02669)
 
 **************************** **Updates** ****************************
+* 06/02/2025: [Camera-ready version](https://arxiv.org/abs/2501.02669) for ICML 2025 is out!
 * 05/01/2025: Our paper is accepted to ICML 2025. See you in Vancouver!
-* 01/06/2025: We released [our paper](https://arxiv.org/abs/2501.02669). Check it out!
+* 01/06/2025: We released [our paper](https://arxiv.org/abs/2501.02669v1). Check it out!
 
 ## Quick Links
 
@@ -201,13 +202,11 @@ If you have any questions related to the code or the paper, feel free to email S
 
 Please cite our paper if you find our paper or this repo helpful:
 ```bibtex
-@misc{park2025generalizingsimplehardvisual,
+@inproceedings{park2025generalizingsimplehardvisual,
       title={Generalizing from SIMPLE to HARD Visual Reasoning: Can We Mitigate Modality Imbalance in VLMs?}, 
       author={Simon Park and Abhishek Panigrahi and Yun Cheng and Dingli Yu and Anirudh Goyal and Sanjeev Arora},
       year={2025},
-      eprint={2501.02669},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
+      booktitle={Forty-second International Conference on Machine Learning},
       url={https://arxiv.org/abs/2501.02669}, 
 }
 ```
